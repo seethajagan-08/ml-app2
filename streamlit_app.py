@@ -1,5 +1,48 @@
-import streamlit as st
+import numpy as np
+import pickle
+import pandas as pd
+import streamlit as st 
 
-st.title('🎈 App Name')
+# from PIL import Image
 
-st.write('Hello world!')
+
+pickle_in = open("ads_model.pkl","rb")
+ads_model=pickle.load(pickle_in)
+
+def welcome():
+    return "Welcome All"
+
+def predict_authentication(tv, radio, newspaper):   
+    prediction=ads_model.predict([[tv, radio, newspaper]])
+    return prediction
+
+
+
+def main():
+    html_temp = """
+    <div style="background-color:transparent;margin:auto">
+    <h2 style="color:tomato;text-align:center;">Streamlit 'Sales based on Advertising'</h2>
+    <p style="color:olive; text-align:center;">Project 2️⃣<br>
+    This is my 2<sup>nd</sup> project. This app analysis the Sales performance based on Advertising in different platforms</p>
+    </div>
+    <br>
+    <br>
+    """
+    st.markdown(html_temp,unsafe_allow_html=True)
+    tv = st.number_input("Tv",min_value=0, step=1)
+    radio = st.number_input("Radio",min_value=0, step=1)
+    newspaper = st.number_input("Newspaper",min_value=0, step=0.5)
+    result=""
+    if st.button("Predict"):
+        result=predict_authentication(tv, radio, newspaper)
+    st.success('The output is {}'.format(result))
+    if st.button("About Me"):
+        st.text("I'm Seetha Jagan")
+        st.text("Follow me on 👇")
+        st.markdown(
+                    "<a href='https://www.linkedin.com/in/seethajagan' target='_blank' style='color:royalblue; text-decoration:none; font-size:18px;'>Linked In</a>",
+            unsafe_allow_html=True
+        )
+
+if __name__=='__main__':
+    main()
