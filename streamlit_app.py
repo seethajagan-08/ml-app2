@@ -34,7 +34,7 @@ def main():
     newspaper = st.number_input("Investment on 📰(Newspaper) advertisements [1000$]",min_value=0, step=1)
     result=""
     if st.button("Predict"):
-        result=predict_authentication(tv, radio, newspaper).round(2))
+        result=predict_authentication(tv, radio, newspaper).round(2)
     st.success('Sales Revenue in {}M$'.format(result)
     if st.button("About Me"):
         st.text("I'm Seetha Jagan")
