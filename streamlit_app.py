@@ -35,7 +35,7 @@ def main():
     result=""
     if st.button("Predict"):
         result=predict_authentication(tv, radio, newspaper)
-    st.success('The output is {}'.format(result))
+    st.success('Sales Revenue in {}M$'.format(result))
     if st.button("About Me"):
         st.text("I'm Seetha Jagan")
         st.text("Follow me on 👇")
