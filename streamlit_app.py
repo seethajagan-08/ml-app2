@@ -20,6 +20,7 @@ def predict_authentication(tv, radio, newspaper):
 
 def main():
     html_temp = """
+    <body style="background-color" black; color">
     <div style="background-color:transparent;margin:auto">
     <h2 style="color:tomato;text-align:center;">Streamlit 'Sales based on Advertising'</h2>
     <p style="color:olive; text-align:center;">Project 2️⃣<br>
