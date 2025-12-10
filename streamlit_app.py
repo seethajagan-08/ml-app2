@@ -6,7 +6,7 @@ import streamlit as st
 # from PIL import Image
 
 
-pickle_in = open("ads_model.pkl","rb")
+pickle_in = open("ads.pkl","rb")
 ads_model=pickle.load(pickle_in)
 
 def welcome():
